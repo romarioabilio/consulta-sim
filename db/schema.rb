@@ -10,7 +10,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_10_27_025821) do
+ActiveRecord::Schema[7.0].define(version: 2023_10_27_030503) do
+  create_table "consulta", force: :cascade do |t|
+    t.date "data"
+    t.time "horario"
+    t.integer "paciente_id", null: false
+    t.integer "medico_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["medico_id"], name: "index_consulta_on_medico_id"
+    t.index ["paciente_id"], name: "index_consulta_on_paciente_id"
+  end
+
   create_table "medicos", force: :cascade do |t|
     t.string "nome_completo"
     t.string "cpf"
@@ -30,4 +41,6 @@ ActiveRecord::Schema[7.0].define(version: 2023_10_27_025821) do
     t.datetime "updated_at", null: false
   end
 
+  add_foreign_key "consulta", "medicos"
+  add_foreign_key "consulta", "pacientes"
 end
