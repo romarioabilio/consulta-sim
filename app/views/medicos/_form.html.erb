@@ -1,0 +1,42 @@
+<%= form_with(model: medico) do |form| %>
+  <% if medico.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(medico.errors.count, "error") %> prohibited this medico from being saved:</h2>
+
+      <ul>
+        <% medico.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div>
+    <%= form.label :nome_completo, style: "display: block" %>
+    <%= form.text_field :nome_completo %>
+  </div>
+
+  <div>
+    <%= form.label :cpf, style: "display: block" %>
+    <%= form.text_field :cpf %>
+  </div>
+
+  <div>
+    <%= form.label :email, style: "display: block" %>
+    <%= form.text_field :email %>
+  </div>
+
+  <div>
+    <%= form.label :especialidade, style: "display: block" %>
+    <%= form.text_field :especialidade %>
+  </div>
+
+  <div>
+    <%= form.label :crm, style: "display: block" %>
+    <%= form.text_field :crm %>
+  </div>
+
+  <div>
+    <%= form.submit %>
+  </div>
+<% end %>
