@@ -6,9 +6,12 @@
   <% @medicos.each do |medico| %>
     <%= render medico %>
     <p>
-      <%= link_to "Show this medico", medico %>
+      <%= link_to "Mostrar esse Médico", medico %>
     </p>
   <% end %>
 </div>
 
-<%= link_to "New medico", new_medico_path %>
+<%= link_to "Novo Médico", new_medico_path %>
+<br>
+<br>
+<%= link_to "Voltar a Página inicial", root_path %>
