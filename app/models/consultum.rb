@@ -9,7 +9,7 @@ class Consultum < ApplicationRecord
 
   def data_da_consulta_validar
     if data.present? && data < Date.today
-      errors.add(:data_nascimento,"é inválida !")
+      errors.add(:data,"é inválida !")
     end
   end
 
