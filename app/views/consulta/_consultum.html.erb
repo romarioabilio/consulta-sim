@@ -10,13 +10,13 @@
   </p>
 
   <p>
-    <strong>Paciente:</strong>
-    <%= consultum.paciente_id %>
+    <strong>Medico:</strong>
+    <%= Medico.find(consultum.medico_id).nome_completo %>
   </p>
 
   <p>
-    <strong>Medico:</strong>
-    <%= consultum.medico_id %>
+    <strong>Paciente:</strong>
+    <%= Paciente.find(consultum.paciente_id).nome_completo %>
   </p>
 
 </div>

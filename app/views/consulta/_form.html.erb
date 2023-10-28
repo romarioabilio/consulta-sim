@@ -21,14 +21,14 @@
     <%= form.time_field :horario %>
   </div>
 
-  <div>
-    <%= form.label :paciente_id, style: "display: block" %>
-    <%= form.text_field :paciente_id %>
+  <div class="field">
+    <%= form.label :medico_id %>
+    <%= form.collection_select(:medico_id, Medico.all, :id, :nome_completo,{:selected => @consultum.medico_id})%>
   </div>
 
-  <div>
-    <%= form.label :medico_id, style: "display: block" %>
-    <%= form.text_field :medico_id %>
+  <div class="field">
+    <%= form.label :paciente_id %>
+    <%= form.collection_select(:paciente_id, Paciente.all, :id, :nome_completo,{:selected => @consultum.paciente_id})%>
   </div>
 
   <div>

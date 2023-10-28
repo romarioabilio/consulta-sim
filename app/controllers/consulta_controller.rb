@@ -13,6 +13,8 @@ class ConsultaController < ApplicationController
   # GET /consulta/new
   def new
     @consultum = Consultum.new
+    @consultum.build_paciente
+    @consultum.build_medico
   end
 
   # GET /consulta/1/edit
@@ -21,7 +23,10 @@ class ConsultaController < ApplicationController
 
   # POST /consulta or /consulta.json
   def create
+    @medico = Medico.find(consultum_params[:medico_id])
+    @paciente = Paciente.find(consultum_params[:paciente_id])
     @consultum = Consultum.new(consultum_params)
+
 
     respond_to do |format|
       if @consultum.save
