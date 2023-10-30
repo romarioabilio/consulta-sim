@@ -3,9 +3,9 @@
 <%= render @paciente %>
 
 <div>
-  <%= link_to "Editar esse paciente", edit_paciente_path(@paciente) %>
-  <%= link_to "Voltar aos pacientes", pacientes_path %>
+  <%= link_to "Editar paciente", edit_paciente_path(@paciente) %>
+  <%= link_to "Voltar a lista de pacientes", pacientes_path %>
   <%= link_to "Voltar a Página inicial", root_path %>
 
-  <%= button_to "Deletar esse paciente", @paciente, method: :delete %>
+  <%= button_to "Deletar paciente", @paciente, method: :delete %>
 </div>

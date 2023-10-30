@@ -3,9 +3,9 @@
 <%= render @consultum %>
 
 <div>
-  <%= link_to "Editar essa consulta", edit_consultum_path(@consultum) %>
+  <%= link_to "Editar consulta", edit_consultum_path(@consultum) %>
   <%= link_to "Voltar a lista de consultas", consulta_path %>
   <%= link_to "Voltar a Página inicial", root_path %>
 
-  <%= button_to "Deletar essa consulta", @consultum, method: :delete %>
+  <%= button_to "Deletar consulta", @consultum, method: :delete %>
 </div>
