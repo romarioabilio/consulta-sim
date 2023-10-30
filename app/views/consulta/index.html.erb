@@ -6,14 +6,14 @@
   <% @consulta.each do |consultum| %>
     <%= render consultum %>
     <p>
-      <%= link_to "Mostrar essa consulta", consultum %>
+      <%= link_to "Selecionar consulta", consultum %>
     </p>
   <% end %>
 </div>
 
 <%= link_to "Voltar a Página inicial", root_path %>
 
-<%= link_to "Nova consulta", new_consultum_path %>
+<%= link_to "Agendar nova consulta", new_consultum_path %>
 
 
 
