@@ -26,6 +26,8 @@ class ConsultaController < ApplicationController
     @medico = Medico.find(consultum_params[:medico_id])
     @paciente = Paciente.find(consultum_params[:paciente_id])
     @consultum = Consultum.new(consultum_params)
+    @medico.consultums << @consultum
+    @paciente.consultums << @consultum
 
 
     respond_to do |format|
