@@ -13,7 +13,7 @@
 ActiveRecord::Schema[7.0].define(version: 2023_10_27_030828) do
   create_table "consulta", force: :cascade do |t|
     t.date "data"
-    t.time "horario"
+    t.string "horario"
     t.integer "paciente_id", null: false
     t.integer "medico_id", null: false
     t.datetime "created_at", null: false
