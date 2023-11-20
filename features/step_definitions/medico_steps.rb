@@ -29,3 +29,34 @@ Then("eu vejo a mensagem de que o medico foi criado com sucesso") do
 end
 
 
+#Cenário 4
+
+Given('estou na pagina inicial dos medicos') do
+  visit '/medicos'
+end
+
+Given('seleciono o medico com crm {string}, para visualizar o restante de suas informacoes') do |crm|
+  @medico = Medico.create(
+    nome_completo: "José Avelino",
+    cpf: "11403528498",
+    email: "jose_avelino@gmail.com",
+    especialidade:"Ortopedista",
+    crm: crm
+  )
+  expect(@medico.persisted?).to be true
+end
+
+When('clico em visualizar o medico') do
+  visit medico_path(@medico.id)
+end
+
+Then('vejo todas as informacoes do medico') do
+  expect(page).to have_content(@medico.nome_completo)
+  expect(page).to have_content(@medico.crm)
+  expect(page).to have_content(@medico.especialidade)
+  expect(page).to have_content(@medico.email)
+  expect(page).to have_content(@medico.cpf)
+
+end
+
+

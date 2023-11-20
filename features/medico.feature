@@ -11,4 +11,10 @@ Feature:
     And eu clico no botao de criar medico
     Then eu vejo a mensagem de que o medico foi criado com sucesso
 
+  Scenario: visualizar medico especifico
+    Given estou na pagina inicial dos medicos
+    And seleciono o medico com crm '123456', para visualizar o restante de suas informacoes
+    When clico em visualizar o medico
+    Then vejo todas as informacoes do medico
+
 
