@@ -32,5 +32,44 @@ Then("eu vejo a mensagem de que o paciente foi criado com sucesso") do
 end
 
 
+#Cenário 2
 
+Given('estou na pagina inicial dos pacientes') do
+  visit pacientes_path
+end
+
+Given('seleciono o paciente com CPF {string}, para visualizar o restante de suas informacoes') do |cpf|
+  @paciente = Paciente.create(
+    nome_completo: "Giorgia De Arrascaeta",
+    cpf: cpf,
+    data_nascimento: '2003-08-29',
+    email: "arraxca@gmail.com",
+    endereco_attributes: {
+      logradouro: "Rua B",
+      complemento: "Apto",
+      cep: "55700000",
+      bairro: "Centro",
+      cidade: "Rio de Janeiro"
+    }
+
+  )
+  expect(@paciente.persisted?).to be true
+end
+
+When('clico em visualizar o paciente') do
+  visit paciente_path(@paciente.id)
+
+end
+
+Then('vejo todas as informacoes do paciente') do
+  expect(page).to have_content(@paciente.nome_completo)
+  expect(page).to have_content(@paciente.cpf)
+  expect(page).to have_content(@paciente.data_nascimento)
+  expect(page).to have_content(@paciente.email)
+  expect(page).to have_content(@paciente.endereco.logradouro)
+  expect(page).to have_content(@paciente.endereco.complemento)
+  expect(page).to have_content(@paciente.endereco.cep)
+  expect(page).to have_content(@paciente.endereco.bairro)
+  expect(page).to have_content(@paciente.endereco.cidade)
+end
 

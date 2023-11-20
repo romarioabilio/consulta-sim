@@ -9,3 +9,9 @@ Feature:
     When eu preencho os dados nome_completo 'Romário Abílio' data_nascimento '2001-08-22' cpf '11403528498' email 'romarioabilio@hotmail.com' cep '55700000' cidade 'Limoeiro' bairro 'Centro' logradouro 'Rua Alto do Moura' complemento 'casa azul'
     And eu clico no botao de criar paciente
     Then eu vejo a mensagem de que o paciente foi criado com sucesso
+
+  Scenario: visualizar paciente especifico
+    Given estou na pagina inicial dos pacientes
+    And seleciono o paciente com CPF '11403528498', para visualizar o restante de suas informacoes
+    When clico em visualizar o paciente
+    Then vejo todas as informacoes do paciente
